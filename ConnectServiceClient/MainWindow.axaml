@@ -4,6 +4,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="ConnectServiceClient.MainWindow"
+        xmlns:local="clr-namespace:ConnectServiceClient"
+        x:DataType="local:MainViewModel"
         Title="ConnectServiceClient">
-    Welcome to Avalonia!
+        <Design.DataContext>
+                <local:MainViewModel/>
+        </Design.DataContext>
+        <StackPanel>
+                <TextBox x:Name="NameInput" Width="200" Margin="10"/>
+                <Button Content="Say Hello" Command="{Binding SayHelloCommand}" CommandParameter="{Binding Text, ElementName=NameInput}" Width="200" Margin="10"/>
+                <TextBlock Text="{Binding GreetingResult}" Width="200" Margin="10"/>
+        </StackPanel>
 </Window>

@@ -1,4 +1,6 @@
+using System.Threading.Tasks;
 using Avalonia.Controls;
+using ReactiveUI;
 
 namespace ConnectServiceClient
 {
@@ -7,6 +9,8 @@ namespace ConnectServiceClient
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainViewModel();
         }
+        
     }
 }

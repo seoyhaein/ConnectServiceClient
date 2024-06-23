@@ -1,6 +1,8 @@
 syntax = "proto3";
 
-package helloworld;
+package protos; 
+option go_package = "github.com/seoyhaein/ConnectService/protos";
+option csharp_namespace = "ConnectServiceClient"; // C# 네임스페이스
 
 // The greeting service definition
 service Greeter {
