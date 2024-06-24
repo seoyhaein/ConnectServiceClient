@@ -1,4 +1,5 @@
 ﻿using Avalonia;
+using Avalonia.ReactiveUI;
 using System;
 
 namespace ConnectServiceClient
@@ -17,6 +18,7 @@ namespace ConnectServiceClient
             => AppBuilder.Configure<App>()
                 .UsePlatformDetect()
                 .WithInterFont()
+                .UseReactiveUI() // ReactiveUI 설정 추가
                 .LogToTrace();
     }
 }

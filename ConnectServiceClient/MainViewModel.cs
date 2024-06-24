@@ -1,4 +1,5 @@
 using System;
+using System.Reactive.Linq;
 using ReactiveUI;
 
 namespace ConnectServiceClient;
@@ -21,7 +22,10 @@ public class MainViewModel : ReactiveObject
         SayHelloCommand = ReactiveCommand.CreateFromTask<string, string>(_grpcService.SayHello);
         
         // SayHelloCommand 실행 결과를 GreetingResult에 바인딩
-        SayHelloCommand.Subscribe(result => GreetingResult = result);
-        //SayHelloCommand.Subscribe((string result) => GreetingResult = result);
+        SayHelloCommand
+            .ObserveOn(RxApp.MainThreadScheduler)
+            .Subscribe(result => GreetingResult = result);
+        
+        
     }
 }

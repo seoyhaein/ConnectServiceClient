@@ -14,7 +14,7 @@ public class GrpcService
     
     public GrpcService()
     {
-        var channel = GrpcChannel.ForAddress("https://localhost:50052");
+        var channel = GrpcChannel.ForAddress("http://localhost:50052");
         _client = new Greeter.GreeterClient(channel);
     }
     
